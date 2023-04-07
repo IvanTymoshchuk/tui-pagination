@@ -17,4 +17,20 @@ export class UnsplashAPI {
       },
     });
   }
+
+  fetchPhotosByQuery(page) {
+    return axios.get(`${this.#BASE_URL}/search/photos`, {
+      params: {
+        query: this.#query,
+        page,
+        per_page: 12,
+        client_id: this.#API_KEY,
+      },
+    });
+  }
+
+  set query(newQuery){
+    this.#query = newQuery;
+  }
 }
+
